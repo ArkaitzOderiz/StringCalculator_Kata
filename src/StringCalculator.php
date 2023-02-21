@@ -6,15 +6,16 @@ class StringCalculator
 {
     public function Add(string $numbers): int
     {
+        $result = 0;
+
         if(empty($numbers)) {
-            return 0;
+            return $result;
         }
-        if(strlen($numbers) == 1){
-            return (int) $numbers;
+
+        for($i=0;$i<=strlen($numbers);$i+=2){
+            $result += $numbers[$i];
         }
-        if(strlen($numbers) == 3){
-            return (int) $numbers[0]+ (int) $numbers[2];
-        }
+        return $result;
     }
 
 }
