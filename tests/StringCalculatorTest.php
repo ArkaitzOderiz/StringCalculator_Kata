@@ -9,14 +9,20 @@ use PHPUnit\Framework\TestCase;
 
 final class StringCalculatorTest extends TestCase
 {
+    private StringCalculator $calculator;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->calculator = new StringCalculator();
+    }
+
     /**
      * @test
      */
     public function return_0_if_string_is_empty()
     {
-        $calculator = new StringCalculator();
-
-        $response = $calculator->Add("");
+        $response = $this->calculator->Add("");
 
         $this->assertEquals(0, $response);
     }
@@ -26,9 +32,7 @@ final class StringCalculatorTest extends TestCase
      */
     public function return_same_number_if_string_have_1_number()
     {
-        $calculator = new StringCalculator();
-
-        $response = $calculator->Add("2");
+        $response = $this->calculator->Add("2");
 
         $this->assertEquals(2, $response);
     }
@@ -36,11 +40,9 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_if_string_have_2_numbers()
+    public function return_sum_result_if_string_have_2_numbers()
     {
-        $calculator = new StringCalculator();
-
-        $response = $calculator->Add("1,2");
+        $response = $this->calculator->Add("1,2");
 
         $this->assertEquals(3, $response);
     }
@@ -48,11 +50,9 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_if_string_have_more_than_2_numbers()
+    public function return_sum_result_if_string_have_more_than_2_numbers()
     {
-        $calculator = new StringCalculator();
-
-        $response = $calculator->Add("1,2,3,4");
+        $response = $this->calculator->Add("1,2,3,4");
 
         $this->assertEquals(10, $response);
     }
@@ -60,11 +60,19 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_if_string_have_line_feed()
+    public function return_sum_result_if_string_have_line_feed()
     {
-        $calculator = new StringCalculator();
+        $response = $this->calculator->Add("1/n2/n3,4");
 
-        $response = $calculator->Add("1/n2/n3,4");
+        $this->assertEquals(10, $response);
+    }
+
+    /**
+     * @test
+     */
+    public function return_sum_result_if_string_have_personalized_delimeters()
+    {
+        $response = $this->calculator->Add("//;/n1;2;3;4");
 
         $this->assertEquals(10, $response);
     }
