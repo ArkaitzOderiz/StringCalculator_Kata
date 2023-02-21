@@ -12,6 +12,8 @@ class StringCalculator
             return $result;
         }
 
+        $numbers = str_replace("/n", ",", $numbers);
+
         for($i=0;$i<=strlen($numbers);$i+=2){
             $result += $numbers[$i];
         }

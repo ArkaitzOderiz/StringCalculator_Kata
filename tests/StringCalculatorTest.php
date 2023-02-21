@@ -57,4 +57,16 @@ final class StringCalculatorTest extends TestCase
         $this->assertEquals(10, $response);
     }
 
+    /**
+     * @test
+     */
+    public function return_sum_if_string_have_line_feed()
+    {
+        $calculator = new StringCalculator();
+
+        $response = $calculator->Add("1/n2/n3,4");
+
+        $this->assertEquals(10, $response);
+    }
+
 }
