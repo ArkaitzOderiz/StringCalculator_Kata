@@ -77,4 +77,14 @@ final class StringCalculatorTest extends TestCase
         $this->assertEquals(10, $response);
     }
 
+    /**
+     * @test
+     */
+    public function return_sum_result_ignoring_numbers_bigger_than_1000()
+    {
+        $response = $this->calculator->Add("1,2000,3,4000");
+
+        $this->assertEquals(4, $response);
+    }
+
 }

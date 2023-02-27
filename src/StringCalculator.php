@@ -21,11 +21,13 @@ class StringCalculator
         }
 
         $parsedNumbers = str_replace($delimiter, ",", $parsedNumbers);
+        $parsedNumbers = explode(",", $parsedNumbers);
 
-        for($i=0;$i<=strlen($parsedNumbers);$i+=2){
-            $result += $parsedNumbers[$i];
+        for($i=0;$i<sizeof($parsedNumbers);$i+=1){
+            if($parsedNumbers[$i]<=1000) {
+                $result += $parsedNumbers[$i];
+            }
         }
         return $result;
     }
-
 }
