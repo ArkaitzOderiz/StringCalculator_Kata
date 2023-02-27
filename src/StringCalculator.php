@@ -7,7 +7,6 @@ class StringCalculator
     public function Add(string $numbers): int
     {
         $result = 0;
-        $parsedNumbers = "";
         $delimiter = "/n";
 
         if(empty($numbers)) {
@@ -17,6 +16,8 @@ class StringCalculator
         if(str_starts_with($numbers,"//")){
             $delimiter = $numbers[2];
             $parsedNumbers = str_replace("//".$delimiter."/n", "", $numbers);
+        } else {
+            $parsedNumbers = $numbers;
         }
 
         $parsedNumbers = str_replace($delimiter, ",", $parsedNumbers);
