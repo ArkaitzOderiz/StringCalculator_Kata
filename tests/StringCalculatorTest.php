@@ -20,7 +20,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_0_if_string_is_empty()
+    public function return0IfStringIsEmpty()
     {
         $response = $this->calculator->Add("");
 
@@ -30,7 +30,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_same_number_if_string_have_1_number()
+    public function returnSameNumberIfStringHave1Number()
     {
         $response = $this->calculator->Add("2");
 
@@ -40,7 +40,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_result_if_string_have_2_numbers()
+    public function returnSumResultIfStringHave2Numbers()
     {
         $response = $this->calculator->Add("1,2");
 
@@ -50,7 +50,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_result_if_string_have_more_than_2_numbers()
+    public function returnSumResultIfStringHaveMoreThan2Numbers()
     {
         $response = $this->calculator->Add("1,2,3,4");
 
@@ -60,7 +60,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_result_if_string_have_line_feed()
+    public function returnSumResultIfStringHaveLineFeed()
     {
         $response = $this->calculator->Add("1/n2/n3,4");
 
@@ -70,7 +70,7 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_result_if_string_have_personalized_delimeters()
+    public function returnSumResultIfStringHavePersonalizedDelimeters()
     {
         $response = $this->calculator->Add("//;/n1;2;3;4");
 
@@ -80,11 +80,10 @@ final class StringCalculatorTest extends TestCase
     /**
      * @test
      */
-    public function return_sum_result_ignoring_numbers_bigger_than_1000()
+    public function returnSumResultIgnoringNumbersBiggerThan1000()
     {
         $response = $this->calculator->Add("1,2000,3,4000");
 
         $this->assertEquals(4, $response);
     }
-
 }
