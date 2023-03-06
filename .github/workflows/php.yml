@@ -34,8 +34,5 @@ jobs:
     - name: Run PHPUnit
       run: vendor/bin/phpunit
       
-    - name: Run PHPcs
-      run: vendor/bin/phpcs
-      
     - name: Run grump
       run: vendor/bin/grumphp
