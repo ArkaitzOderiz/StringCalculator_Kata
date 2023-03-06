@@ -37,8 +37,5 @@ jobs:
     - name: Run PHPcs
       run: vendor/bin/phpcs
       
-    - name: Run PHPmd
-      run: vendor/bin/phpmd
-
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Run grump
+      run: vendor/bin/grumphp
